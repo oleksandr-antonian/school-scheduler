@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia';
-import { createWebHistory, createRouter } from 'vue-router'
+import { createWebHashHistory, createRouter } from 'vue-router'
 import './style.css'
 import 'primeicons/primeicons.css'
 
@@ -17,20 +17,23 @@ import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
 import Select from 'primevue/select';
 import ConfirmPopup from 'primevue/confirmpopup';
+import HomeView from './views/HomeView.vue';
+import TeacherListView from './views/TeacherListView.vue';
+import ClassListView from './views/ClassListView.vue';
+import SubjectListView from './views/SubjectListView.vue';
 
 const app = createApp(App);
 const pinia = createPinia();
 
 const routes = [
-    { path: '/', component: () => import('./views/HomeView.vue') },
-    { path: '/teachers', component: () => import('./views/TeacherListView.vue') },
-    { path: "/classes", component: () => import("./views/ClassListView.vue") },
-    { path: "/subjects", component: () => import("./views/SubjectListView.vue") },
-    { path: "/test", component: () => import("./views/TestView.vue") },
+    { path: '/', component: HomeView, name: 'Home' },
+    { path: '/teachers', component: TeacherListView, name: 'Teachers' },
+    { path: "/classes", component: ClassListView, name: 'Classes' },
+    { path: "/subjects", component: SubjectListView, name: 'Subjects' }
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     base: '/school-scheduler/',
     routes,
 })

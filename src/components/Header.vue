@@ -1,6 +1,9 @@
 <script setup>
 import Menubar from 'primevue/menubar';
 import { ref } from 'vue';
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 
 const items = ref([
@@ -8,25 +11,25 @@ const items = ref([
     label: 'Розклад',
     key: 'schedule',
     icon: 'pi pi-calendar',
-    url: '/'
+    command: () => router.push({ name: 'Home' }),
   },
   {
     label: 'Предмети',
     key: 'subjects',
     icon: 'pi pi-book',
-    url: '/subjects',
+    command: () => router.push({ name: 'Subjects' }),
   },
   {
     label: 'Вчителі',
     key: 'teachers',
     icon: 'pi pi-user',
-    url: '/teachers',
+    command: () => router.push({ name: 'Teachers' }),
   },
   {
     label: 'Класи',
     key: 'classes',
     icon: 'pi pi-users',
-    url: '/classes',
+    command: () => router.push({ name: 'Classes' }),
   }
 ]);
 </script>
