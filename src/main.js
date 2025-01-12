@@ -31,7 +31,7 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(),
-    base: '/school-scheduler',
+    base: '/school-scheduler/',
     routes,
 })
 
